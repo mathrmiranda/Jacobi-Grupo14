@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define ERRO_ACEITAVEL 0.01
+#define ERRO_ACEITAVEL 0.001
 
 int main(int argc, char *argv[])
 {
@@ -10,20 +10,19 @@ int main(int argc, char *argv[])
     int tam,seed,i,j;
     double *b,*xk,*xk_1, somalinha = 0;
 
-     if ( argc  != 3)
+     if ( argc  != 2)
     {
-	printf("Argumentos errados. Utilize <ordem da matriz> <semente para geracao de numeros> \n");
+	printf("Argumentos errados. Utilize <ordem da matriz> \n");
 	exit(0);
     }
 
     tam = atoi(argv[1]);
-    seed = atoi(argv[2]);
+    seed = 2;
 
     double A[tam][tam];
-    b =(double*)malloc(3*sizeof(double));
+    b =(double*)malloc(tam*sizeof(double));
     xk =(double*)malloc(tam*sizeof(double));
     xk_1 =(double*)malloc(tam*sizeof(double));
-
 
 
     /**Preenchimento das matrizes A e b **/
@@ -121,6 +120,7 @@ int main(int argc, char *argv[])
     {
         printf("%0.3f\n", xk_1[i]);
     }
+
 
     /**TESTE DA RESPOSTA**/
     int equa;
